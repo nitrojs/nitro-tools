@@ -1,8 +1,8 @@
 {
   "name": "nitro-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "nitro tools",
-  "main": "utils.js",
+  "main": "lib/tools.js",
   "scripts": {
     "test": "$(npm bin)/mocha tests"
   },
