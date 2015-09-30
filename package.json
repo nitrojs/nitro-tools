@@ -1,0 +1,28 @@
+{
+  "name": "nitro-tools",
+  "version": "0.0.1",
+  "description": "nitro tools",
+  "main": "utils.js",
+  "scripts": {
+    "test": "$(npm bin)/mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nitrojs/nitro-tools.git"
+  },
+  "keywords": [
+    "javascript",
+    "nitro",
+    "tools"
+  ],
+  "author": "Jesús Manuel Germade Castiñeiras <jesus@germade.es>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nitrojs/nitro-tools/issues"
+  },
+  "homepage": "https://github.com/nitrojs/nitro-tools",
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "mocha": "^2.3.3"
+  }
+}
