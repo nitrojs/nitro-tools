@@ -2,13 +2,17 @@ nitro-tools [![wercker status](https://app.wercker.com/status/3f20841faade376a5a
 ================
 [![npm version](https://badge.fury.io/js/nitro-tools.svg)](http://badge.fury.io/js/nitro-tools)
 [![Build Status](https://travis-ci.org/nitrojs/nitro-tools.svg?branch=master)](https://travis-ci.org/nitrojs/nitro-tools)
+
 Installation
 ------------
+
 ```.sh
 npm install nitro-tools --save
 ```
+
 Usage
 -----
+
 Underscore object '_' with useful functions
 
 ``` js
