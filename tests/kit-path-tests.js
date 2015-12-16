@@ -1,6 +1,6 @@
 
 var assert = require('assert'),
-    _ = require('../lib/group-path');
+    _ = require('../lib/kit-path');
 
 describe('joinPath', function () {
 

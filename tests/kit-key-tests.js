@@ -1,6 +1,6 @@
 
 var assert = require('assert'),
-    _ = require('../lib/group-key');
+    _ = require('../lib/kit-key');
 
 describe('Object handling by Key', function () {
 

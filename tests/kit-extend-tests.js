@@ -1,6 +1,6 @@
 
 var assert = require('assert'),
-    _ = require('../lib/group-extend');
+    _ = require('../lib/kit-extend');
 
 describe('Object extend functions', function () {
 
