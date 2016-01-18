@@ -22,10 +22,31 @@ describe('_.cached', function () {
           return foobar;
         });
 
-    assert( _cached() === foobar );
+    assert.strictEqual( _cached(), foobar);
 
     _cached();
     assert.equal( counter, 1 );
+
+  });
+
+  it('flush', function () {
+
+    var foobar = { foo: 'bar' },
+        counter = 0,
+        _cached = _.cached(function () {
+          counter++;
+          return foobar;
+        });
+
+    assert.strictEqual( _cached(), foobar, '_cached() === foobar (1)');
+
+    _cached();
+    assert.equal( counter, 1 );
+
+    _.cached.flush();
+
+    assert.strictEqual( _cached(), foobar, '_cached() === foobar (2)');
+    assert.equal( counter, 2, 'counter = 2' );
 
   });
 
