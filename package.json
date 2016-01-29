@@ -1,6 +1,6 @@
 {
   "name": "nitro-tools",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "nitro tools",
   "main": "lib/tools.js",
   "scripts": {
