@@ -4,10 +4,16 @@ var assert = require('assert'),
 
 describe('Object handling by Key', function () {
 
-	it('_.key get', function () {
+  it('_.key get', function () {
 		var o = { foo: 'bar' };
 
-		assert.equal( _.key(o, 'foo'), 'bar');
+		assert.strictEqual( _.key(o, 'foo'), 'bar');
+	});
+
+	it('_.key get undefined', function () {
+		var o = { foo: 'bar' };
+
+		assert.strictEqual( _.key(o, 'foo.bar'), undefined);
 	});
 
 	it('_.key set', function () {
@@ -15,7 +21,7 @@ describe('Object handling by Key', function () {
 
 		_.key(o, 'foo', 'changed');
 
-		assert.equal( o.foo, 'changed');
+		assert.strictEqual( o.foo, 'changed');
 	});
 
 	it('_.key set 2nd level', function () {
@@ -23,7 +29,7 @@ describe('Object handling by Key', function () {
 
 		_.key(o, 'foo.bar', 'foobar');
 
-		assert.equal( o.foo.bar, 'foobar');
+		assert.strictEqual( o.foo.bar, 'foobar');
 	});
 
 });
