@@ -306,6 +306,46 @@ describe('_.map object', function () {
 
 });
 
+describe('_.map2List object', function () {
+
+  var o = {
+    p1: 'foo',
+    p2: 'bar',
+    p3: 'foobar'
+  };
+
+  it('_.map (length)', function () {
+		assert.strictEqual( _.map2List(o, function (value, key) {
+      return key + '-' + value;
+    }).length, 3 );
+	});
+
+	it('_.map2List (-)', function () {
+		assert.strictEqual( _.map2List(o, function (value, key) {
+      return key + '-' + value;
+    }).join(','), 'p1-foo,p2-bar,p3-foobar' );
+	});
+
+  it('_.map (length)', function () {
+		assert.strictEqual( _.map2List(o, function (value, key) {
+      return key + '-' + value;
+    }).length, 3 );
+	});
+
+	it('_.map2List (key)', function () {
+		assert.strictEqual( _.map2List(o, function (value, key) {
+      return key;
+    }).join(','), 'p1,p2,p3' );
+	});
+
+  it('_.map2List (value)', function () {
+		assert.strictEqual( _.map2List(o, function (value, key) {
+      return value;
+    }).join(','), 'foo,bar,foobar' );
+	});
+
+});
+
 describe('_.pluck', function () {
 
 	var list = [{ foo: 'foo' }, { foo: 'bar' }, { foo: 'foobar' }];
