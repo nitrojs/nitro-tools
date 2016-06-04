@@ -1,4 +1,4 @@
-nitro-tools [![wercker status](https://app.wercker.com/status/3f20841faade376a5a8cc5aaf1051230/s "wercker status")](https://app.wercker.com/project/bykey/3f20841faade376a5a8cc5aaf1051230)
+nitro-tools [![wercker status](https://app.wercker.com/status/5fd93e38cd61b461afdffc60eb275226/s "wercker status")](https://app.wercker.com/project/bykey/5fd93e38cd61b461afdffc60eb275226)
 ================
 [![npm version](https://badge.fury.io/js/nitro-tools.svg)](http://badge.fury.io/js/nitro-tools)
 [![Build Status](https://travis-ci.org/nitrojs/nitro-tools.svg?branch=master)](https://travis-ci.org/nitrojs/nitro-tools)
