@@ -15,7 +15,7 @@ describe('find', function () {
 	});
 
 	it('_.find mismatch', function () {
-		assert.strictEqual( _.find(list, { foo: 'bar', value: 0 }), null);
+		assert.strictEqual( _.find(list, { foo: 'bar', value: 0 }), undefined);
 	});
 
 	it('_.find all keys', function () {
