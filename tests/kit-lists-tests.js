@@ -351,14 +351,14 @@ describe('_.pluck', function () {
 	var list = [{ foo: 'foo' }, { foo: 'bar' }, { foo: 'foobar' }];
 
 	it('_.pluck', function () {
-		assert.strictEqual( _.pluck(list, 'foo').toString(), 'foo,bar,foobar');
+		assert.strictEqual( _.pluck(list, 'foo').join(','), 'foo,bar,foobar');
 	});
 
 	// _.pluck callback is an alias of map
 	it('_.pluck callback', function () {
 		assert.strictEqual( _.pluck(list, function (item) {
 			return this + item.foo;
-		}, '_').toString(), '_foo,_bar,_foobar');
+		}, '_').join(','), '_foo,_bar,_foobar');
 	});
 
 });
