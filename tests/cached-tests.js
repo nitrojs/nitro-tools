@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = { cached: require('../lib/cached') },
+var _ = { cached: require('../cached') },
     assert = require('assert');
 
 describe('_.cached', function () {

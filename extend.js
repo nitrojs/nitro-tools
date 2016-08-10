@@ -1,7 +1,7 @@
 
 var RE_$$ = /^\$\$/,
     arrayShift = [].shift,
-    _ = require('./kit-type');
+    type = require('./type');
 
 function _merge () {
     var dest = arrayShift.call(arguments),
@@ -11,19 +11,19 @@ function _merge () {
     while( src ) {
 
       if( typeof dest !== typeof src ) {
-          dest = _.isArray(src) ? [] : ( _.isObject(src) ? {} : src );
+          dest = type.isArray(src) ? [] : ( type.isObject(src) ? {} : src );
       }
 
-      if( _.isObject(src) ) {
+      if( type.isObject(src) ) {
 
         for( key in src ) {
           if( src[key] === undefined ) {
             dest[key] = undefined;
           // } else if( typeof dest[key] !== typeof src[key] ) {
           //   dest[key] = _merge(undefined, src[key]);
-          } else if( _.isArray(dest[key]) ) {
+          } else if( type.isArray(dest[key]) ) {
             [].push.apply(dest[key], src[key]);
-          } else if( _.isObject(dest[key]) ) {
+          } else if( type.isObject(dest[key]) ) {
             dest[key] = _merge(dest[key], src[key]);
           } else {
             dest[key] = src[key];
@@ -37,7 +37,7 @@ function _merge () {
 }
 
 module.exports = {
-  extend: require('./extend'),
+  extend: require('./_extend'),
   merge: _merge,
   copy: function (o) {
       return _merge(undefined, o);

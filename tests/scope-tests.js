@@ -2,10 +2,10 @@
 
 var s1, s2, s3,
     assert = require('assert'),
-    _ = require('../lib/tools');
+    Scope = require('../scope');
 
 function initScopes () {
-	s1 = _.scope({ foo: 'bar', overlap: 'v1', obj: { value: 'pristine' }, num: 2 });
+	s1 = new Scope({ foo: 'bar', overlap: 'v1', obj: { value: 'pristine' }, num: 2 });
 
 	s2 = s1.new({ overlap: 'v2' });
 

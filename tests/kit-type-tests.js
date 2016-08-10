@@ -4,7 +4,7 @@ describe('object type', function () {
   'use strict';
 
   var assert = require('assert'),
-      _ = require('../lib/kit-type'),
+      _ = require('../type'),
       isBrowser = typeof window !== 'undefined';
 
   it('tools (_) factory should be defined', function () {

@@ -31,10 +31,4 @@ Scope.prototype.eval = function ( expression, thisArg ) {
     return evalExpression(expression)(this, thisArg);
 };
 
-module.exports = function (data) {
-  var s = new Scope();
-  if( data !== undefined ) {
-    s.extend(data);
-  }
-  return s;
-};
+module.exports = Scope;

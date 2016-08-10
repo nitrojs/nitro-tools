@@ -1,8 +1,8 @@
 
-var _ = require('./kit-type');
+var type = require('./type');
 
 function _key (o, _key, value){
-    if( !_.isObject(o) ) {
+    if( !type.isObject(o) ) {
 			return undefined;
 		}
 
@@ -11,7 +11,7 @@ function _key (o, _key, value){
 
     if( value === undefined ) {
       while (key) {
-        if( _.isObject(o) && key in o ) {
+        if( type.isObject(o) && key in o ) {
           o = o[key];
         } else {
           return;

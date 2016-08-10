@@ -27,7 +27,8 @@
 
 'use strict';
 
-var extend = require('./extend');
+var extend = require('./extend'),
+    Scope = require('./scope');
 
 function Chain (value) {
     this.value = value;
@@ -37,19 +38,21 @@ function _ (value) {
     return new Chain(value);
 }
 
-extend(_,
-  require('./kit-type'),
-  require('./kit-key'),
-  require('./kit-extend'),
-  require('./kit-lists'),
-  require('./kit-path'),
-  // require('./group-pipe'),
+extend.extend(_,
+  extend,
+  require('./type'),
+  require('./key'),
+  require('./lists'),
+  require('./path'),
   {
     eval: require('./eval'),
-    scope: require('./scope'),
     cached: require('./cached')
   }
 );
+
+_.scope = function (data) {
+  return new Scope(data);
+};
 
 _.each(['key', 'keys', 'each', 'filter', 'find', 'indexOf', 'indexBy', 'pluck', 'remove', 'extend', 'merge', 'copy'], function (nameFn) {
     Chain.prototype[nameFn] = function () {

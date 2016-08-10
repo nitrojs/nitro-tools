@@ -1,6 +1,6 @@
 
 var assert = require('assert'),
-    _ = require('../lib/kit-key');
+    _ = require('../key');
 
 describe('Object handling by Key', function () {
 

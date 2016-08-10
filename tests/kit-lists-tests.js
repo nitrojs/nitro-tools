@@ -1,6 +1,6 @@
 
 var assert = require('assert'),
-    _ = require('../lib/kit-lists');
+    _ = require('../lists');
 
 describe('find', function () {
 

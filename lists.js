@@ -1,5 +1,5 @@
 
-var _ = require('./kit-type'),
+var type = require('./type'),
     arrSome = Array.prototype.some,
     arrEvery = Array.prototype.every,
     arrForEach = Array.prototype.forEach,
@@ -37,11 +37,11 @@ function _matchAny (o, filters) {
 }
 
 function _iterateeFn (iteratee) {
-  if( _.isFunction(iteratee) ) {
+  if( type.isFunction(iteratee) ) {
     return iteratee;
   }
 
-  if( _.isObject(iteratee) ) {
+  if( type.isObject(iteratee) ) {
     return function (item) {
       return _matchAll(item, iteratee);
     };
@@ -57,13 +57,13 @@ function _iterateeFn (iteratee) {
 function each (o, iteratee, thisArg) {
   if( o && o.length ) {
     arrForEach.call(o, iteratee, thisArg);
-  } else if( _.isObject(o) ) {
+  } else if( type.isObject(o) ) {
     _eachInObject(o, iteratee, thisArg || this);
   }
 }
 
 function indexOf (list, iteratee, thisArg) {
-  if( !_.isFunction(iteratee) ) {
+  if( !type.isFunction(iteratee) ) {
     return arrIndexOf.call(list, iteratee, thisArg);
   }
 
@@ -85,9 +85,9 @@ function _indexBy (list, iteratee, thisArg) {
 }
 
 function indexBy (list, iteratee, thisArg) {
-	if( _.isString(iteratee) ) {
+	if( type.isString(iteratee) ) {
 		return _indexBy(list, function (item) { return item[iteratee]; }, thisArg);
-	} else if( _.isFunction(iteratee) ) {
+	} else if( type.isFunction(iteratee) ) {
 		return _indexBy(list, iteratee, thisArg);
 	}
 	return {};
@@ -98,7 +98,7 @@ function some (list, iteratee, thisArg) {
 
   if( list && list.length ) {
     return arrSome.call(list, iteratee, thisArg);
-  } else if( _.isObject(list) ) {
+  } else if( type.isObject(list) ) {
     for( var key in list )  {
       if( iteratee.call(thisArg, list[key], key) ) {
         return true;
@@ -113,7 +113,7 @@ function every (list, iteratee, thisArg) {
 
   if( list && list.length ) {
     return arrEvery.call(list, iteratee, thisArg);
-  } else if( _.isObject(list) ) {
+  } else if( type.isObject(list) ) {
     for( var key in list )  {
       if( !iteratee.call(thisArg, list[key], key) ) {
         return false;
@@ -124,11 +124,11 @@ function every (list, iteratee, thisArg) {
 };
 
 function map (list, _iteratee, thisArg) {
-  var iteratee = _.isString(_iteratee) ? function (item) { return item[_iteratee]; } : _iteratee;
+  var iteratee = type.isString(_iteratee) ? function (item) { return item[_iteratee]; } : _iteratee;
 
   if( list && list.length ) {
     return arrMap.call(list, iteratee, thisArg);
-  } else if( _.isObject(list) ) {
+  } else if( type.isObject(list) ) {
     var result = {};
     for( var key in list )  {
       result[key] = iteratee.call(thisArg, list[key], key);
