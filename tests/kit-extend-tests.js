@@ -49,10 +49,14 @@ describe('Object extend functions', function () {
 
 	it('_.copy', function () {
 
-		var o = { foo: 'bar' },
+		var o = { foo: 'bar', bar: { foobar: '...' } },
 				o2 = _.copy(o);
 
-		assert.equal( o2.foo, 'bar');
+    o.bar.foobar = 'no-dots';
+
+		assert.equal( o2.foo, 'bar', 'first level');
+		assert.equal( o2.bar.foobar, '...', '...');
+		assert( o.bar !== o2.bar, 'different instance');
 	});
 
 });

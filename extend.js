@@ -19,8 +19,6 @@ function _merge () {
         for( key in src ) {
           if( src[key] === undefined ) {
             dest[key] = undefined;
-          // } else if( typeof dest[key] !== typeof src[key] ) {
-          //   dest[key] = _merge(undefined, src[key]);
           } else if( type.isArray(dest[key]) ) {
             [].push.apply(dest[key], src[key]);
           } else if( type.isObject(dest[key]) ) {
@@ -36,10 +34,32 @@ function _merge () {
     return dest;
 }
 
+function mapObject (o, iteratee) {
+  var result = {};
+  for( var key in o ) {
+    result[key] = iteratee(o[key], key);
+  }
+  return result;
+}
+
+function _copy (src) {
+  if( type.isObject(src) ) {
+    return mapObject(src, function (item) {
+      return _copy(item);
+    });
+  }
+
+  if( type.isArray(src) ) {
+    return src.map(function (item) {
+      return _copy(item);
+    });
+  }
+
+  return src;
+}
+
 module.exports = {
   extend: require('./_extend'),
   merge: _merge,
-  copy: function (o) {
-      return _merge(undefined, o);
-  }
+  copy: _copy
 };
