@@ -49,14 +49,16 @@ describe('Object extend functions', function () {
 
 	it('_.copy', function () {
 
-		var o = { foo: 'bar', bar: { foobar: '...' } },
+		var o = { foo: 'bar', bar: { foobar: '...' }, list: [1,2,3] },
 				o2 = _.copy(o);
 
     o.bar.foobar = 'no-dots';
 
 		assert.equal( o2.foo, 'bar', 'first level');
 		assert.equal( o2.bar.foobar, '...', '...');
-		assert( o.bar !== o2.bar, 'different instance');
+		assert( o.bar !== o2.bar, 'different bar instances');
+		assert( o.list !== o2.list, 'different list instances');
+    assert( typeof o2.list, 'list is still an array');
 	});
 
 });

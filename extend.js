@@ -43,14 +43,14 @@ function mapObject (o, iteratee) {
 }
 
 function _copy (src) {
-  if( type.isObject(src) ) {
-    return mapObject(src, function (item) {
+  if( type.isArray(src) ) {
+    return src.map(function (item) {
       return _copy(item);
     });
   }
-
-  if( type.isArray(src) ) {
-    return src.map(function (item) {
+  
+  if( type.isObject(src) ) {
+    return mapObject(src, function (item) {
       return _copy(item);
     });
   }
