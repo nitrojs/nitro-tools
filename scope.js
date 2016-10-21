@@ -3,32 +3,26 @@
 var evalExpression = require('./eval');
 
 var Scope = function (data) {
-		if(!this) {
-			return new Scope(data);
-		}
+	if(!this) {
+		return new Scope(data);
+	}
 
-    if( data instanceof Object ) {
-        this.extend(data);
-    }
+  this.extend(data || {});
 };
 
 Scope.prototype.new = function(data) {
-    var S = function () {
-        this.extend(data);
-    };
-    S.prototype = this;
-    return new S(data);
+    return Object.create(this).extend(data);
 };
 
 Scope.prototype.extend = function(data) {
-    for( var key in data ) {
-        this[key] = data[key];
-    }
-    return this;
+  for( var key in data ) {
+    this[key] = data[key];
+  }
+  return this;
 };
 
 Scope.prototype.eval = function ( expression, thisArg ) {
-    return evalExpression(expression)(this, thisArg);
+  return evalExpression(expression)(this, thisArg);
 };
 
 module.exports = Scope;
